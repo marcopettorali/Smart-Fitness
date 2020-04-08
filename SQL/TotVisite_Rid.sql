@@ -1,0 +1,17 @@
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS TotVisite_Rid$$
+
+CREATE PROCEDURE TotVisite_Rid (IN cliente VARCHAR(255))
+BEGIN
+   
+	SELECT C.VisiteMedico
+	FROM Cliente C
+	WHERE C.CodFiscale = cliente;
+
+END$$
+DELIMITER ;
+
+
+INSERT INTO visita (`DataVisita`,`Medico`,`Cliente`) VALUES ("2017-02-03","OBWUSS39P17L433J","QJDEJM67A93E918Q");
+CALL TotVisite("QJDEJM67A93E918Q");
